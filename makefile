@@ -1,7 +1,7 @@
 DOC_DIR=doc
 RELEASE=release
 INC=inc
-LIB_NAME=libeth.a
+LIB_NAME=libfifo.a
 
 ifndef debug
 debug:=
@@ -12,16 +12,16 @@ CC = cc $(if $(debug),-DDEBUG -g)
 LD = cc
 DEPS=tb_fifo.c tb_fifo.h tb_all.h tb_list.h tb_types.h tb_util.h 
 
-test : test.o fifo.o
+test : test.o tb_fifo.o
 	$(LD) -o test -g $^
 
 test.o : test.c
 	$(CC) -c test.c $(FLAGS)
 
-fifo.o: $(DEPS)
+tb_fifo.o: $(DEPS)
 	$(CC) -c tb_fifo.c $(FLAGS)
 
-lib: fifo.o 
+lib: tb_fifo.o 
 	ar rcs $(LIB_NAME) $^ 
 
 valgrind: test
