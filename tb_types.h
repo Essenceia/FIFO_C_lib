@@ -1,3 +1,6 @@
+#ifndef TB_TYPES_H
+#define TB_TYPES_H
+
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
@@ -21,3 +24,5 @@ typedef double f64;
 
 /* Pointer-sized type. */
 typedef size_t uaddr;
+
+#endif // TB_TYPES_H

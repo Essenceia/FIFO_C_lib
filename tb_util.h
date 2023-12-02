@@ -1,3 +1,5 @@
+#ifndef TB_UTILS_H
+#define TB_UTILS_H
 
 /*****************
  * Concatenation *
@@ -250,3 +252,5 @@ static inline u8 size_to_order(uaddr size)
 #define SAFE_DECR(var) ({check(var); var--;})
 #define SAFE_ADD(var, addend) ({check(var <= ((typeof(var)) (var + addend))); var = ((typeof(var)) (var + addend));})
 #define SAFE_SUB(var, addend) ({check(((typeof(var)) (var - addend)) <= var); var = ((typeof(var)) (var - addend));})
+
+#endif 
