@@ -6,7 +6,7 @@ static inline void _elm_dtor(
 )
 {
 	tb_list_rmu(&elm->elms);
-	(*(fifo->elm_dtor))(elm);
+	(*(fifo->elm_dtor))(elm->impl);
 	free(elm->impl);
 	free(elm);
 }
@@ -41,7 +41,7 @@ void tb_fifo_dtor(
 {
 	tb_fifo_elm *elm;
 	tb_list_fes(elm, &fifo->elms, elms) {
-		_elm_dtor(fifo, elm->impl);
+		_elm_dtor(fifo, elm);
 	}
 	free(fifo);
 }
